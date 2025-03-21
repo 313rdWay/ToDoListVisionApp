@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct ToDoListManager: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@Observable
+class ToDoListManager {
+    
+    var tasks: [Task] = []
+    
+    func addTask(task: Task) {
+        tasks.append(task)
     }
-}
-
-#Preview {
-    ToDoListManager()
+    
+    func removeAllTask(task: Task) {
+        tasks.removeAll()
+    }
+    
+    func removeATask(task: Task) {
+        for i in 0..<tasks.count {
+            tasks.remove(at: i)
+        }
+    }
 }
